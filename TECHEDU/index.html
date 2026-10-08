@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TechShop EDU | Gadgets educativos de electrónica</title>
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ===== BARRA SUPERIOR ===== -->
+  <header class="barra">
+    <a class="logo" href="index.html" aria-label="TechShop EDU, ir al inicio">
+      <img src="images/logo.svg" alt="" width="40" height="40">
+      <span class="logo__texto">TechShop <span class="logo__edu">EDU</span></span>
+    </a>
+    <nav class="barra__nav" aria-label="Principal">
+      <a href="#catalogo">Catálogo</a>
+    </nav>
+    <a class="btn-carrito" href="#carrito" id="btn-carrito" aria-label="Ver carrito">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+      </svg>
+      <!-- El JS del carrito actualiza este número -->
+      <span class="badge" id="cart-badge">0</span>
+    </a>
+  </header>
+
+  <main>
+    <!-- ===== PORTADA ===== -->
+    <section class="portada">
+      <div class="portada__texto">
+        <h1>Aprende electrónica armando tus propios circuitos</h1>
+        <p>Placas, sensores y herramientas para clases, talleres y proyectos escolares. Elige tu kit y empieza a
+          prototipar.</p>
+        <a class="btn btn--primario" href="#catalogo">Ver catálogo</a>
+      </div>
+      <figure class="portada__imagen">
+        <img src="images/arduino-uno.jpg" alt="Placa Arduino UNO sobre una mesa de trabajo">
+      </figure>
+    </section>
+
+    <!-- ===== BUSCADOR Y FILTROS ===== -->
+    <section class="catalogo" id="catalogo">
+      <div class="catalogo__cabecera">
+        <h2>Catálogo</h2>
+        <label class="buscador">
+          <span class="sr-only">Buscar productos</span>
+          <input type="search" id="buscador" placeholder="Busca por nombre o descripción" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="filtros" role="group" aria-label="Filtrar por categoría">
+        <button class="filtro is-activo" data-categoria="todos" aria-pressed="true">Todos</button>
+        <button class="filtro" data-categoria="microcontroladores" aria-pressed="false">Microcontroladores</button>
+        <button class="filtro" data-categoria="sensores" aria-pressed="false">Sensores</button>
+        <button class="filtro" data-categoria="prototipado" aria-pressed="false">Prototipado</button>
+        <button class="filtro" data-categoria="herramientas" aria-pressed="false">Herramientas</button>
+      </div>
+
+      <!-- Sin resultados: el JS quita el atributo hidden cuando el filtro no encuentra nada -->
+      <p class="vacio" id="sin-resultados" hidden>No encontramos productos con esa búsqueda. Prueba con otra palabra o
+        elige "Todos".</p>
+
+      <!-- ===== LISTA DE PRODUCTOS =====
+           Se renderiza dinámicamente desde js/app.js -->
+      <div class="grid" id="lista-productos"></div>
+    </section>
+
+
+    <!-- SECCION DEL CARRITO  -->
+    <section class="carrito-seccion" id="carrito" aria-label="Carrito de compras">
+      <h2>Carrito</h2>
+
+      <div id="carrito-contenido" class="carrito__contenido">
+        <p class="vacio" id="carrito-vacio">Tu carrito esta vacio.</p>
+      </div>
+
+      <div class="carrito__totales">
+        <div class="d-flex justify-content-between">
+          <span>Total:</span>
+          <span id="carrito-total">$0.00</span>
+        </div>
+      </div>
+
+     
+      <a href="checkout.html" class="btn btn--checkout" id="btn-checkout">Ir a Pagar</a>
+    </section>
+    <!-- FIN: SECCIÓN DEL CARRITO -->
+  </main>
+
+  <footer class="pie">
+    <p>TechShop EDU. Gadgets educativos de electrónica para proyectos escolares.</p>
+  </footer>
+
+  <!-- Buscador y filtros del catálogo. Mi compañero puede agregar aquí el script del carrito. -->
+  <script src="js/app.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>
