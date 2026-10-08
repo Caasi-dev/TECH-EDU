@@ -60,7 +60,3 @@ Dado que es un proyecto de frontend estático, no se requiere instalación de en
     ```
 3.  **Ejecutar la aplicación:**
     Simplemente abre el archivo `index.html` en tu navegador web de preferencia. Para una mejor experiencia de desarrollo, puedes utilizar una extensión como "Live Server" en tu editor de código.
-
-## Contacto
-
-Desarrollado por Caasi-dev - [Perfil de GitHub](https://github.com/Caasi-dev)
